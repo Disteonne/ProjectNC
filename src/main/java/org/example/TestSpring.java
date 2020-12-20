@@ -50,8 +50,21 @@ public class TestSpring {
         */
 
         /* init-method,destroy-method,factory-method */
+        /*
         ClassicalMusic classicalMusic=context.getBean("musicBean",ClassicalMusic.class);
         System.out.println(classicalMusic.getSong());
+         */
+
+
+        /*      СОЗДАНИЕ БИНОВ С ПОМОЩЬЮ АННОТАЦИЙ    */
+        /*
+        Music music=context.getBean("rockMusic",RockMusic.class);
+        MusicPlayer musicPlayer=new MusicPlayer(music);
+        musicPlayer.playMusic();
+        Music music1=context.getBean("classicalMusic",ClassicalMusic.class);
+        MusicPlayer musicPlayer1=new MusicPlayer(music1);
+        musicPlayer1.playMusic();
+         */
 
 
 

@@ -1,5 +1,7 @@
 package org.example;
 
+
+
 public class MusicPlayer {
     private Music music;
     private String name;
