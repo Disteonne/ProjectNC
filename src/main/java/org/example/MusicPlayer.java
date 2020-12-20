@@ -35,4 +35,6 @@ public class MusicPlayer {
     public void setMusic(Music music) {
         this.music = music;
     }
+
+
 }
