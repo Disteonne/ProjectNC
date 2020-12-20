@@ -22,17 +22,20 @@ public class TestSpring {
         //Music music=context.getBean("musicBean",Music.class);
         //MusicPlayer player=new MusicPlayer(music);
         //player.playMusic();
-
+        //          ПОСЛЕ ВНЕДРЕНИЯ
+        /*
         MusicPlayer musicPlayer=context.getBean("musicPlayer",MusicPlayer.class);
         musicPlayer.playMusic();
         System.out.println(musicPlayer.getName());
         System.out.println(musicPlayer.getVolume());
 
+         */
+
 
 
         System.out.println("-------------------------------");
         /* SCOPES */
-
+        /*
         MusicPlayer firstMusicPlayer=context.getBean("musicPlayer",MusicPlayer.class);
         System.out.println(firstMusicPlayer.getName());
         firstMusicPlayer.setName("Diana");
@@ -44,7 +47,11 @@ public class TestSpring {
         System.out.println(compare);
         System.out.println(firstMusicPlayer);
         System.out.println(secondMusicPlayer);
+        */
 
+        /* init-method,destroy-method,factory-method */
+        ClassicalMusic classicalMusic=context.getBean("musicBean",ClassicalMusic.class);
+        System.out.println(classicalMusic.getSong());
 
 
 
