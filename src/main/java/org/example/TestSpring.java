@@ -66,7 +66,13 @@ public class TestSpring {
         musicPlayer1.playMusic();
          */
 
+        /*      ЗАВИСИМОСТЬ ЧЕРЕЗ АННОТАЦИИ     */
 
+        //MusicPlayer musicPlayer=context.getBean("musicPlayer",MusicPlayer.class);
+        //musicPlayer.playMusic();
+
+        Computer computer=context.getBean("computer",Computer.class);
+        System.out.println(computer);
 
         context.close();
 

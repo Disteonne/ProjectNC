@@ -1,14 +1,25 @@
 package org.example;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MusicPlayer {
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
     private Music music;
     private String name;
     private int volume;
     //IoC
+
     public MusicPlayer(Music music) {
         this.music = music;
+    }
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
     }
 
     public MusicPlayer() {
@@ -30,8 +41,11 @@ public class MusicPlayer {
         this.volume = volume;
     }
 
-    public void playMusic(){
-        System.out.println(music.getSong());
+    public String playMusic(){
+        //System.out.println(music.getSong());
+        //System.out.println(classicalMusic.getSong());
+        //System.out.println(rockMusic.getSong());
+        return classicalMusic.getSong();
     }
 
     public void setMusic(Music music) {
