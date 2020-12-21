@@ -1,5 +1,6 @@
 package org.example;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpring {
@@ -14,9 +15,12 @@ public class TestSpring {
         context.close();
          */
 
+        /*   С ИСПОЛЬЗОВАНИЕМ КОНФИГА С РАСШИР XML
         ClassPathXmlApplicationContext context=new ClassPathXmlApplicationContext(
                 "applicationContext.xml"
         );
+
+         */
 
         //          ДО ВНЕДРЕНИЯ ЗАВИСИМОСТЕЙ
         //Music music=context.getBean("musicBean",Music.class);
@@ -71,8 +75,27 @@ public class TestSpring {
         //MusicPlayer musicPlayer=context.getBean("musicPlayer",MusicPlayer.class);
         //musicPlayer.playMusic();
 
+
+        /*
         Computer computer=context.getBean("computer",Computer.class);
         System.out.println(computer);
+         */
+
+        AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(SpringConfig.class);
+
+
+        /*  ИСПОЛЬЗОВАНИЯ ВНЕШНЕГО ФАЙЛА .properties  */
+        MusicPlayer musicPlayer=context.getBean("musicPlayer",MusicPlayer.class);
+        System.out.println(musicPlayer.getName());
+        System.out.println(musicPlayer.getVolume());
+
+
+        /* SCOPE АННОТАЦИЯ */
+        ClassicalMusic classicalMusic=context.getBean("classicalMusic",ClassicalMusic.class);
+        ClassicalMusic classicalMusic1=context.getBean("classicalMusic",ClassicalMusic.class);
+
+        System.out.println(classicalMusic==classicalMusic1);
+
 
         context.close();
 

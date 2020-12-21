@@ -70,3 +70,23 @@ SCOPE - ОБЛАСТЬ ВИДИМОСТИ БИНОВ
         Если не находится ни одного-ОШИБКА
         Если несколько-НЕОДНАЗНАЧНОСТЬ
     Можно использовать на полях, на set и конструкторах + даже  в приватное поле,если нет конструктора или set(спс рефлексия)
+    @Qualifier-уточнитель (решение проблемы неоднозначности)-> @Qualifier("id OR nameOfClass")
+        Используется данная аннотация в конструкторах (рядом с аргументами в конструкторе),set,полях
+    @Value
+    @Scope
+    @PostConstruct - аналог init-method (аналогичное описание.как и в init)
+    @PreDestroy -аналог destroy-method (аналогичное описание.как и в destroy)
+    @Configuration - конфигурация для пустого java-класса StringConfig,который равен .xml файлу
+        public class StringConfig{}
+    @ComponentScan("путь")-над названием класса
+    @Bean-для создание бина в конфиг классе
+                    @Configuration
+                    public class StringConfig{
+                        @Bean
+                        public ClassicalMusic musicBean(){
+                        return new ClassicalMusic();
+                        }
+                    }
+ -С использованием аннотации для конфига задание в main будет так:
+ AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(StringConfig.class);
+    @PropertySource("путь до файла")- для внедрнения значений из внешнего файла (ставится перед классов СпрингКонфиг)

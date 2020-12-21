@@ -2,17 +2,31 @@ package org.example;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class MusicPlayer {
     private ClassicalMusic classicalMusic;
     private RockMusic rockMusic;
-    private Music music;
+    //@Autowired
+    //@Qualifier("classicalMusic")
+    private Music music1;
+    private Music music2;
+    @Value("${musicPlayer.name}")
     private String name;
+    @Value("${musicPlayer.volume}")
     private int volume;
-    //IoC
 
+    @Autowired
+    public MusicPlayer(@Qualifier("rockMusic") Music music1,@Qualifier("classicalMusic") Music music2) {
+        this.music1 = music1;
+        this.music2 = music2;
+    }
+
+    //IoC
+    /*
     public MusicPlayer(Music music) {
         this.music = music;
     }
@@ -21,6 +35,8 @@ public class MusicPlayer {
         this.classicalMusic = classicalMusic;
         this.rockMusic = rockMusic;
     }
+
+     */
 
     public MusicPlayer() {
     }
@@ -45,11 +61,11 @@ public class MusicPlayer {
         //System.out.println(music.getSong());
         //System.out.println(classicalMusic.getSong());
         //System.out.println(rockMusic.getSong());
-        return classicalMusic.getSong();
+        return music1.getSong()+" "+music2.getSong();
     }
 
     public void setMusic(Music music) {
-        this.music = music;
+        //this.music = music;
     }
 
 
